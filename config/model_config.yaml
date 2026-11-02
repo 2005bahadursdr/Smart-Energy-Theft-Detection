@@ -1,0 +1,48 @@
+# ==============================================================================
+# Neural Network Architectures Configuration
+# Blockchain-Based Byzantine-Resilient FL for Smart Grid Energy Theft Detection
+# ==============================================================================
+
+active_model: "cnn_lstm" # Options: 'lstm', 'cnn_lstm'
+
+lstm:
+  name: "EnergyTheftLSTM"
+  input_size: 1 # Univariate consumption time series (daily kWh)
+  hidden_size: 64
+  num_layers: 2
+  bidirectional: false
+  dropout: 0.2
+  fc_dims: [32]
+  output_size: 1
+  sequence_length: 30
+
+cnn_lstm:
+  name: "EnergyTheftCNNLSTM"
+  input_channels: 1
+  sequence_length: 30
+  conv_layers:
+    - filters: 32
+      kernel_size: 3
+      padding: 1
+      stride: 1
+      pool_size: 2
+    - filters: 64
+      kernel_size: 3
+      padding: 1
+      stride: 1
+      pool_size: 2
+  lstm_hidden_size: 64
+  lstm_layers: 1
+  lstm_dropout: 0.2
+  dense_units: [32]
+  dense_dropout: 0.3
+  output_size: 1
+
+preprocessing:
+  imputation_strategy: "linear_interpolate" # Handles missing smart meter telemetry
+  outlier_clipping:
+    enabled: true
+    min_quantile: 0.001
+    max_quantile: 0.999
+  scaling: "minmax" # Normalizes consumption readings to [0, 1]
+  window_step: 7 # Sliding window stride (days)

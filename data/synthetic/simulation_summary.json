@@ -1,0 +1,63 @@
+{
+  "simulation_metadata": {
+    "project": "Blockchain-Based Byzantine-Resilient FL Smart Grid Energy Theft Detection",
+    "engine": "SmartMeterSimulator v1.0",
+    "random_seed": 42,
+    "start_timestamp": "2026-01-01 00:00:00",
+    "total_meters": 1000,
+    "total_days": 30,
+    "total_hours": 720,
+    "total_records": 720000,
+    "substations": [
+      "client_A",
+      "client_B",
+      "client_C",
+      "client_D",
+      "client_E"
+    ]
+  },
+  "consumption_statistics": {
+    "mean_reported_kwh": 21.976528702258168,
+    "max_reported_kwh": 335.9383,
+    "zero_readings_total": 28020,
+    "zero_readings_legitimate": 25822,
+    "zero_readings_simulated_theft": 2198,
+    "legitimate_zero_percentage_of_all_zeros": 92.16,
+    "missing_readings_telemetry_drops": 7077
+  },
+  "event_breakdown": {
+    "NONE": 640704,
+    "TAMPER_EVENT": 23825,
+    "SUSTAINED_DROP": 13696,
+    "VACANCY": 11932,
+    "SOLAR_SELF_GEN": 11611,
+    "GRID_OUTAGE": 9000,
+    "COMM_FAILURE": 7077,
+    "DISCONNECTION": 2155
+  },
+  "meter_status_breakdown": {
+    "NORMAL": 695193,
+    "OUTAGE": 9000,
+    "COMM_FAILURE": 7077,
+    "TAMPER_ALERT": 6575,
+    "DISCONNECTED": 2155
+  },
+  "synthetic_ground_truth": {
+    "theft_rate_meter_level": 0.082,
+    "simulated_theft_reading_count": 23825,
+    "simulated_theft_reading_percentage": 3.309,
+    "hardware_tamper_alerts_raised": 6575,
+    "total_simulated_unreported_kwh": 462381.27,
+    "tamper_modality_distribution": {
+      "NONE": 696175,
+      "PARTIAL_BYPASS": 6424,
+      "CYBER_SCALING": 3972,
+      "MAGNETIC_TAMPER": 3662,
+      "PEAK_CLIPPING": 3098,
+      "REVERSE_CURRENT": 1913,
+      "FULL_BYPASS": 1688,
+      "CYBER_FLATLINE": 1540,
+      "RANDOM_UNDER_REPORTING": 1528
+    }
+  }
+}

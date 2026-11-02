@@ -1,0 +1,100 @@
+# ==============================================================================
+# Git Ignore Configuration
+# Blockchain-Based Byzantine-Resilient Federated Learning for Smart Grid
+# ==============================================================================
+
+# Python Bytecode & Packaging
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+nosetests.xml
+coverage.xml
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook Caches & Checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Node.js / React Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.vite/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment & Secret Configurations
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+wallet.json
+
+# Logs & Runtime Dumps
+*.log
+logs/
+*.out
+*.tmp
+*.bak
+*.temp
+.matplotlib/
+
+# IDE & Editor Artifacts
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Large Temporary / Raw Data (Keep essentials in data/)
+data/raw/*.zip
+data/raw/*.tar.gz
+data/raw/*.csv
+data/raw/data.csv
+data/synthetic/*.csv

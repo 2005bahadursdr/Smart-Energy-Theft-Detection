@@ -1,0 +1,339 @@
+{
+  "status": "COMPLETED",
+  "total_rounds": 2,
+  "clients_count": 5,
+  "client_ids": [
+    "client_A",
+    "client_B",
+    "client_C",
+    "client_D",
+    "client_E"
+  ],
+  "duration_seconds": 16.01,
+  "total_communication_bytes": 3456400,
+  "total_communication_mb": 3.3,
+  "best_f1_score": 1.0,
+  "attack_configured": false,
+  "active_attack": "none",
+  "attacker_clients": [],
+  "history": [
+    {
+      "round": 1,
+      "aggregation_strategy": "trust_aware_fedavg",
+      "participating_clients": [
+        "client_A",
+        "client_E",
+        "client_C",
+        "client_B",
+        "client_D"
+      ],
+      "client_count": 5,
+      "total_samples": 9800,
+      "trust_evaluations": {
+        "client_A": {
+          "client_id": "client_A",
+          "num_samples": 1960,
+          "similarity_score": 1.0,
+          "distance_score": 0.9382,
+          "validation_score": 0.7,
+          "reputation_score": 0.7,
+          "composite_trust_score": 0.8376,
+          "is_suspicious": false,
+          "raw_cosine": 0.9999,
+          "euclidean_distance": 0.9433,
+          "update_norm": 88.1694,
+          "aggregation_weight": 0.1977,
+          "quarantined": false
+        },
+        "client_E": {
+          "client_id": "client_E",
+          "num_samples": 1960,
+          "similarity_score": 1.0,
+          "distance_score": 0.9954,
+          "validation_score": 0.7,
+          "reputation_score": 0.7,
+          "composite_trust_score": 0.8491,
+          "is_suspicious": false,
+          "raw_cosine": 0.9999,
+          "euclidean_distance": 0.8908,
+          "update_norm": 88.1743,
+          "aggregation_weight": 0.2004,
+          "quarantined": false
+        },
+        "client_C": {
+          "client_id": "client_C",
+          "num_samples": 1960,
+          "similarity_score": 1.0,
+          "distance_score": 1.0,
+          "validation_score": 0.7,
+          "reputation_score": 0.7,
+          "composite_trust_score": 0.85,
+          "is_suspicious": false,
+          "raw_cosine": 1.0,
+          "euclidean_distance": 0.7626,
+          "update_norm": 88.1754,
+          "aggregation_weight": 0.2006,
+          "quarantined": false
+        },
+        "client_B": {
+          "client_id": "client_B",
+          "num_samples": 1960,
+          "similarity_score": 1.0,
+          "distance_score": 1.0,
+          "validation_score": 0.7,
+          "reputation_score": 0.7,
+          "composite_trust_score": 0.85,
+          "is_suspicious": false,
+          "raw_cosine": 1.0,
+          "euclidean_distance": 0.8387,
+          "update_norm": 88.1799,
+          "aggregation_weight": 0.2006,
+          "quarantined": false
+        },
+        "client_D": {
+          "client_id": "client_D",
+          "num_samples": 1960,
+          "similarity_score": 1.0,
+          "distance_score": 1.0,
+          "validation_score": 0.7,
+          "reputation_score": 0.7,
+          "composite_trust_score": 0.85,
+          "is_suspicious": false,
+          "raw_cosine": 1.0,
+          "euclidean_distance": 0.8868,
+          "update_norm": 88.1685,
+          "aggregation_weight": 0.2006,
+          "quarantined": false
+        }
+      },
+      "aggregation_weights": {
+        "client_A": 0.1977,
+        "client_E": 0.2004,
+        "client_C": 0.2006,
+        "client_B": 0.2006,
+        "client_D": 0.2006
+      },
+      "fallback_triggered": false,
+      "detection_diagnostics": {},
+      "client_fit_metrics": {
+        "client_A": {
+          "num_samples": 1960,
+          "train_loss": 0.2446922440862944,
+          "grad_norm": 0.260939961597375,
+          "duration_sec": 2.551,
+          "uplink_bytes": 172820
+        },
+        "client_E": {
+          "num_samples": 1960,
+          "train_loss": 0.23116612915069826,
+          "grad_norm": 0.3295125131988325,
+          "duration_sec": 1.739,
+          "uplink_bytes": 172820
+        },
+        "client_C": {
+          "num_samples": 1960,
+          "train_loss": 0.24998622489792685,
+          "grad_norm": 0.18502105533394686,
+          "duration_sec": 1.367,
+          "uplink_bytes": 172820
+        },
+        "client_B": {
+          "num_samples": 1960,
+          "train_loss": 0.2406531931652177,
+          "grad_norm": 0.2581179180745286,
+          "duration_sec": 1.229,
+          "uplink_bytes": 172820
+        },
+        "client_D": {
+          "num_samples": 1960,
+          "train_loss": 0.24875977295901505,
+          "grad_norm": 0.21139048418175443,
+          "duration_sec": 1.58,
+          "uplink_bytes": 172820
+        }
+      },
+      "server_benchmark_metrics": {},
+      "communication": {
+        "total_uplink_bytes": 864100,
+        "total_downlink_bytes": 864100,
+        "total_bytes": 1728200,
+        "round_total_mb": 1.648
+      },
+      "saved_best_checkpoint": false,
+      "best_f1_to_date": -1.0,
+      "aggregated_evaluate_metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "pr_auc": 1.0,
+        "roc_auc": 1.0,
+        "total_samples": 2800,
+        "reporting_clients_count": 5
+      },
+      "client_evaluate_loss": 0.02312460674771241
+    },
+    {
+      "round": 2,
+      "aggregation_strategy": "trust_aware_fedavg",
+      "participating_clients": [
+        "client_B",
+        "client_E",
+        "client_C",
+        "client_A",
+        "client_D"
+      ],
+      "client_count": 5,
+      "total_samples": 9800,
+      "trust_evaluations": {
+        "client_B": {
+          "client_id": "client_B",
+          "num_samples": 1960,
+          "similarity_score": 1.0,
+          "distance_score": 1.0,
+          "validation_score": 0.7,
+          "reputation_score": 0.73,
+          "composite_trust_score": 0.8575,
+          "is_suspicious": false,
+          "raw_cosine": 1.0,
+          "euclidean_distance": 0.7703,
+          "update_norm": 87.8746,
+          "aggregation_weight": 0.2024,
+          "quarantined": false
+        },
+        "client_E": {
+          "client_id": "client_E",
+          "num_samples": 1960,
+          "similarity_score": 1.0,
+          "distance_score": 0.9659,
+          "validation_score": 0.7,
+          "reputation_score": 0.7298,
+          "composite_trust_score": 0.8506,
+          "is_suspicious": false,
+          "raw_cosine": 1.0,
+          "euclidean_distance": 0.7971,
+          "update_norm": 87.8638,
+          "aggregation_weight": 0.2008,
+          "quarantined": false
+        },
+        "client_C": {
+          "client_id": "client_C",
+          "num_samples": 1960,
+          "similarity_score": 1.0,
+          "distance_score": 0.7827,
+          "validation_score": 0.7,
+          "reputation_score": 0.73,
+          "composite_trust_score": 0.814,
+          "is_suspicious": false,
+          "raw_cosine": 0.9999,
+          "euclidean_distance": 0.959,
+          "update_norm": 87.8506,
+          "aggregation_weight": 0.1921,
+          "quarantined": false
+        },
+        "client_A": {
+          "client_id": "client_A",
+          "num_samples": 1960,
+          "similarity_score": 1.0,
+          "distance_score": 1.0,
+          "validation_score": 0.7,
+          "reputation_score": 0.7275,
+          "composite_trust_score": 0.8569,
+          "is_suspicious": false,
+          "raw_cosine": 1.0,
+          "euclidean_distance": 0.7636,
+          "update_norm": 87.8801,
+          "aggregation_weight": 0.2023,
+          "quarantined": false
+        },
+        "client_D": {
+          "client_id": "client_D",
+          "num_samples": 1960,
+          "similarity_score": 1.0,
+          "distance_score": 1.0,
+          "validation_score": 0.7,
+          "reputation_score": 0.73,
+          "composite_trust_score": 0.8575,
+          "is_suspicious": false,
+          "raw_cosine": 1.0,
+          "euclidean_distance": 0.7174,
+          "update_norm": 87.8702,
+          "aggregation_weight": 0.2024,
+          "quarantined": false
+        }
+      },
+      "aggregation_weights": {
+        "client_B": 0.2024,
+        "client_E": 0.2008,
+        "client_C": 0.1921,
+        "client_A": 0.2023,
+        "client_D": 0.2024
+      },
+      "fallback_triggered": false,
+      "detection_diagnostics": {},
+      "client_fit_metrics": {
+        "client_B": {
+          "num_samples": 1960,
+          "train_loss": 0.005131741973943257,
+          "grad_norm": 0.013804391211726412,
+          "duration_sec": 1.383,
+          "uplink_bytes": 172820
+        },
+        "client_E": {
+          "num_samples": 1960,
+          "train_loss": 0.005543257068746889,
+          "grad_norm": 0.0025238809596152163,
+          "duration_sec": 1.143,
+          "uplink_bytes": 172820
+        },
+        "client_C": {
+          "num_samples": 1960,
+          "train_loss": 0.006053269920577746,
+          "grad_norm": 0.013986251226608137,
+          "duration_sec": 1.219,
+          "uplink_bytes": 172820
+        },
+        "client_A": {
+          "num_samples": 1960,
+          "train_loss": 0.00472135575734184,
+          "grad_norm": 0.002388498260302984,
+          "duration_sec": 1.206,
+          "uplink_bytes": 172820
+        },
+        "client_D": {
+          "num_samples": 1960,
+          "train_loss": 0.005281543777880048,
+          "grad_norm": 0.020278640733433773,
+          "duration_sec": 1.134,
+          "uplink_bytes": 172820
+        }
+      },
+      "server_benchmark_metrics": {},
+      "communication": {
+        "total_uplink_bytes": 864100,
+        "total_downlink_bytes": 864100,
+        "total_bytes": 1728200,
+        "round_total_mb": 1.648
+      },
+      "saved_best_checkpoint": false,
+      "best_f1_to_date": 1.0,
+      "aggregated_evaluate_metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "pr_auc": 1.0,
+        "roc_auc": 1.0,
+        "total_samples": 2800,
+        "reporting_clients_count": 5
+      },
+      "client_evaluate_loss": 0.0003462564551071929
+    }
+  ],
+  "checkpoint_dir": "experiments\\results\\trust_aware_clean",
+  "privacy_notice": "FEDERATED LEARNING PRIVACY NOTICE: Standard Federated Learning (FedAvg) transmits model parameter gradients/updates rather than raw smart meter telemetry, ensuring local data isolation at distribution substations. However, Federated Learning alone DOES NOT guarantee mathematical differential privacy or cryptographic confidentiality. Parameter updates can potentially be vulnerable to gradient inversion or reconstruction attacks unless combined with formal Differential Privacy (DP) or Secure Multi-Party Computation (SMPC) / Secure Aggregation, which must be independently audited and implemented.",
+  "arm_description": "Proposed Trust-Aware FedAvg under clean conditions (0% attack, testing non-IID fairness)",
+  "strategy_type": "trust_aware",
+  "attack_type": "none",
+  "attackers": []
+}

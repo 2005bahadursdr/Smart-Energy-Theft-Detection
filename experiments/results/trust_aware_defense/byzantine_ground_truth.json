@@ -1,0 +1,28 @@
+{
+  "active_attack": "sign_flipping",
+  "attacker_clients": [
+    "client_D"
+  ],
+  "total_attacks_injected": 2,
+  "audit_trail": [
+    {
+      "timestamp": "2026-10-18T09:22:51.166240+00:00",
+      "server_round": 1,
+      "client_id": "client_D",
+      "attack_type": "sign_flipping",
+      "honest_l2_norm": 89.9034,
+      "poisoned_l2_norm": 134.9444,
+      "l2_perturbation_shift": 220.4216
+    },
+    {
+      "timestamp": "2026-10-18T09:22:57.792529+00:00",
+      "server_round": 2,
+      "client_id": "client_D",
+      "attack_type": "sign_flipping",
+      "honest_l2_norm": 176.1407,
+      "poisoned_l2_norm": 51.1849,
+      "l2_perturbation_shift": 219.6823
+    }
+  ],
+  "epistemic_notice": "RESEARCH & OPERATIONAL NOTICE: An unusual, high-norm, or directionally divergent gradient update is NOT definitive proof of malicious Byzantine intent. In smart distribution grids, regional non-IID energy consumption (e.g. continuous industrial processes in client_A or seasonal agricultural irrigation in client_E) naturally produces legitimate statistical outliers. Trust scoring systems must balance outlier dampening with domain-specific variance tolerance."
+}

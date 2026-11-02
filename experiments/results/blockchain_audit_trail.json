@@ -1,0 +1,136 @@
+[
+  {
+    "status": 1,
+    "round": 1,
+    "blockNumber": 2,
+    "transactionHash": "19d10cf5ed2a5b6e538652b0cdb777ee0074b81d928224a77dd8fda8c17479fe",
+    "recordIds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "contractAddress": "0xF2E246BB76DF876Cef8b38ae84130F4F55De395b",
+    "records": [
+      {
+        "round": 1,
+        "client_id": "client_A",
+        "model_update_hash": "0x7cfd0e3661072577c71c4c8b09fb30ca81d523e5b4f94070fc946bb65628bf22",
+        "decision": "ACCEPTED",
+        "reputation_change": 0.05,
+        "new_reputation": 0.75,
+        "timestamp": "2026-10-18T09:50:14.011864+00:00",
+        "record_hash": "0x338187f51a9c461f7cbed48c524801aac46f1701f4c92814b045da5e33cd7458"
+      },
+      {
+        "round": 1,
+        "client_id": "client_E",
+        "model_update_hash": "0xe8fd441cc2af6f431450746b045ed00836172a28505ba51502a7446e0fe24abb",
+        "decision": "ACCEPTED",
+        "reputation_change": 0.05,
+        "new_reputation": 0.75,
+        "timestamp": "2026-10-18T09:50:14.011864+00:00",
+        "record_hash": "0xb43652e5217587ccb0fbd2505a7d89a50307897a4807faba94e85fde9a219820"
+      },
+      {
+        "round": 1,
+        "client_id": "client_C",
+        "model_update_hash": "0xdeb14baa3d4ee58cc52bfc6f0d68ba49ea1f1de45c451e0a1369a005c394e7db",
+        "decision": "ACCEPTED",
+        "reputation_change": 0.05,
+        "new_reputation": 0.75,
+        "timestamp": "2026-10-18T09:50:14.011864+00:00",
+        "record_hash": "0x6b22dc828dda712bc53297461daea55e9f165c6b2a7b35d923b122ca9d6a5d4e"
+      },
+      {
+        "round": 1,
+        "client_id": "client_B",
+        "model_update_hash": "0xa73cbd9208fd681bc37b96abb8d56e567f6d3ea7f907850015be53e2e4aaba07",
+        "decision": "ACCEPTED",
+        "reputation_change": 0.05,
+        "new_reputation": 0.75,
+        "timestamp": "2026-10-18T09:50:14.011864+00:00",
+        "record_hash": "0x1a8617c8c5742da985e5c3a4fe31873a57b5bd1cd75be451291b23c2d2fe8433"
+      },
+      {
+        "round": 1,
+        "client_id": "client_D",
+        "model_update_hash": "0x4eafa831154dbfdf6a5844088d99ae06822bf85a0fd040383d7e1b4954a38df9",
+        "decision": "ACCEPTED",
+        "reputation_change": 0.05,
+        "new_reputation": 0.75,
+        "timestamp": "2026-10-18T09:50:14.011864+00:00",
+        "record_hash": "0x273fb7fea0bb9b55af878d92725381e5c0a0fcae85343e996c003969c0be56a9"
+      }
+    ],
+    "timestamp": "2026-10-18T09:50:14.011864+00:00"
+  },
+  {
+    "status": 1,
+    "round": 2,
+    "blockNumber": 2,
+    "transactionHash": "363cec4be7eb0897ed3170c1e4e8b38d837108df81423af2a93090842055d954",
+    "recordIds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "contractAddress": "0xF2E246BB76DF876Cef8b38ae84130F4F55De395b",
+    "records": [
+      {
+        "round": 2,
+        "client_id": "client_B",
+        "model_update_hash": "0xd4cd800b6c39e51daa43b2e91206a24d8e307598b5a512980759d9a8a509cdc5",
+        "decision": "ACCEPTED",
+        "reputation_change": 0.05,
+        "new_reputation": 0.75,
+        "timestamp": "2026-10-18T09:50:18.671281+00:00",
+        "record_hash": "0xa312c586b37192e9b332a52899801be33c58a068e951255a84bb8fb6e40b015c"
+      },
+      {
+        "round": 2,
+        "client_id": "client_E",
+        "model_update_hash": "0x159b1d75dd48a971bc9aa1d9a7947daf254ae2e4039afbbbac5a2362ceb66744",
+        "decision": "ACCEPTED",
+        "reputation_change": 0.05,
+        "new_reputation": 0.75,
+        "timestamp": "2026-10-18T09:50:18.671281+00:00",
+        "record_hash": "0xc7c7bff2480cd9d63141e46cadd940eda54f37a7b9eb17378d1a6c939e36eef8"
+      },
+      {
+        "round": 2,
+        "client_id": "client_C",
+        "model_update_hash": "0xf30830c467c2bcddd75ab995913ee8d1d69082bb0c6d2a5714d54fede6118483",
+        "decision": "ACCEPTED",
+        "reputation_change": 0.05,
+        "new_reputation": 0.75,
+        "timestamp": "2026-10-18T09:50:18.671281+00:00",
+        "record_hash": "0x842e0f3a7f751fda677d2e6f825a8da95d0fd349407e60bdb634e02bc28eb824"
+      },
+      {
+        "round": 2,
+        "client_id": "client_A",
+        "model_update_hash": "0xb2226c8a10cafc299257c9204f02c9c6a42881d04121534415c22a6d9f3e0bca",
+        "decision": "ACCEPTED",
+        "reputation_change": 0.05,
+        "new_reputation": 0.75,
+        "timestamp": "2026-10-18T09:50:18.671281+00:00",
+        "record_hash": "0x2e65538cfd49a8da710ad4c4671bdbd9e6733a70e7b47c996a153600ddd93a9c"
+      },
+      {
+        "round": 2,
+        "client_id": "client_D",
+        "model_update_hash": "0x0c23bf3eb65fa3ebc332e44613cdd349e7d541db3e71216d82a98e42b41a454d",
+        "decision": "ACCEPTED",
+        "reputation_change": 0.05,
+        "new_reputation": 0.75,
+        "timestamp": "2026-10-18T09:50:18.671281+00:00",
+        "record_hash": "0x08709a1e4fd641dbc8966435f1fd8ce1a176a18ea2b62855560c7642c295ba51"
+      }
+    ],
+    "timestamp": "2026-10-18T09:50:18.671281+00:00"
+  }
+]

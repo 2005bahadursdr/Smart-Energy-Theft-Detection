@@ -1,0 +1,47 @@
+# ==============================================================================
+# Byzantine Attack Simulation Configuration
+# Blockchain-Based Byzantine-Resilient FL for Smart Grid Energy Theft Detection
+# ==============================================================================
+
+byzantine_simulation:
+  enabled: true
+  random_seed: 42
+  malicious_fraction: 0.20 # Proportion of clients configured as Byzantine attackers (e.g. 20% = 1 of 5 nodes)
+  attacker_clients:
+    - "client_D" # Byzantine compromised substation node
+  attack_rounds: null # List of rounds when attack triggers (e.g. [1, 2, 3]), or null for all rounds
+  
+  # Operational & Epistemic Notice
+  epistemic_disclaimer: >
+    An unusual, high-norm, or directionally divergent gradient update is NOT definitive proof of 
+    malicious intent. Regional smart-grid non-IID energy consumption (e.g., heavy industrial load 
+    shifts in client_A or agricultural pump activations in client_E) naturally yields statistical outliers.
+
+  # Attack catalog and parameters
+  active_attack: "sign_flipping" # Options: 'sign_flipping', 'model_poisoning', 'random_update', 'label_flipping'
+
+attacks:
+  sign_flipping:
+    description: "Multiplies local gradient/weight updates by negative scalar, driving global model in opposite direction."
+    multiplier: -1.0 # Standard sign inversion
+    scale_factor: 1.5 # Amplification factor
+
+  model_poisoning:
+    description: "Injects targeted adversarial noise into model parameters to corrupt theft detection boundaries."
+    noise_mean: 0.0
+    noise_std: 1.5
+    adversarial_boost: 2.0
+
+  random_update:
+    description: "Replaces genuine local weights with completely random Gaussian noise vectors."
+    noise_mean: 0.0
+    noise_std: 3.0
+
+  label_flipping:
+    description: "Locally flips training labels (Theft 1 -> 0, Normal 0 -> 1) during local model training."
+    flip_ratio: 1.0 # 100% of local training labels inverted
+
+defense_benchmarks:
+  similarity_rejection_threshold: 0.10 # Rejects negative or near-zero cosine similarity
+  anomaly_z_score_threshold: 2.5 # Statistical outlier cutoff
+  max_tolerable_byzantine_fraction: 0.40 # Up to 40% Byzantine nodes tolerated

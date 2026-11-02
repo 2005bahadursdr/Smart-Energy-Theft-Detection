@@ -1,0 +1,47 @@
+{
+  "benchmark_timestamp": "2026-10-18T09:09:37.812987+00:00",
+  "total_rounds": 2,
+  "local_epochs": 1,
+  "model_architecture": "CNN_LSTM",
+  "epistemic_disclaimer": "RESEARCH & OPERATIONAL NOTICE: An unusual, high-norm, or directionally divergent gradient update is NOT definitive proof of malicious Byzantine intent. In smart distribution grids, regional non-IID energy consumption (e.g. continuous industrial processes in client_A or seasonal agricultural irrigation in client_E) naturally produces legitimate statistical outliers. Trust scoring systems must balance outlier dampening with domain-specific variance tolerance.",
+  "privacy_notice": "FEDERATED LEARNING PRIVACY NOTICE: Standard Federated Learning (FedAvg) transmits model parameter gradients/updates rather than raw smart meter telemetry, ensuring local data isolation at distribution substations. However, Federated Learning alone DOES NOT guarantee mathematical differential privacy or cryptographic confidentiality. Parameter updates can potentially be vulnerable to gradient inversion or reconstruction attacks unless combined with formal Differential Privacy (DP) or Secure Multi-Party Computation (SMPC) / Secure Aggregation, which must be independently audited and implemented.",
+  "comparison": {
+    "fedavg_clean": {
+      "attack_type": "none",
+      "attackers": [],
+      "final_train_loss": 0.0052,
+      "final_test_loss": 0.00030785734881646934,
+      "final_accuracy": 1.0,
+      "final_f1_score": 1.0,
+      "final_pr_auc": 1.0,
+      "total_communication_mb": 3.3,
+      "best_f1_score": 1.0
+    },
+    "fedavg_sign_flipping": {
+      "attack_type": "sign_flipping",
+      "attackers": [
+        "client_D"
+      ],
+      "final_train_loss": 0.0284,
+      "final_test_loss": 0.04120830863714218,
+      "final_accuracy": 1.0,
+      "final_f1_score": 1.0,
+      "final_pr_auc": 1.0,
+      "total_communication_mb": 3.3,
+      "best_f1_score": 1.0
+    },
+    "fedavg_model_poisoning": {
+      "attack_type": "model_poisoning",
+      "attackers": [
+        "client_D"
+      ],
+      "final_train_loss": 0.0092,
+      "final_test_loss": NaN,
+      "final_accuracy": 0.925,
+      "final_f1_score": 0.0,
+      "final_pr_auc": 0.0,
+      "total_communication_mb": 3.3,
+      "best_f1_score": 0.0
+    }
+  }
+}

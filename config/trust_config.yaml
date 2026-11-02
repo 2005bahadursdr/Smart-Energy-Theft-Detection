@@ -1,0 +1,113 @@
+# ==============================================================================
+# Research Trust & Byzantine Defense Configuration
+# Blockchain-Based Byzantine-Resilient FL for Smart Grid Energy Theft Detection
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Threat Model & Operational Context
+# ------------------------------------------------------------------------------
+# Threat Model:
+# - Target Environment: Smart Grid Advanced Metering Infrastructure (AMI) where
+#   distribution substations (clients A through E) train federated theft detectors.
+# - Adversary Capabilities: An adversary may compromise up to f < N/2 substations
+#   (Byzantine fault tolerance limit). The adversary can manipulate local model
+#   parameters, gradients, and training labels prior to transmitting updates to the server.
+# - Attack Vectors:
+#   * Sign-Flipping: Directional gradient inversion (\Delta w * -1.5) to steer global
+#     optimization away from true theft patterns.
+#   * Model Poisoning: Variance-amplified Gaussian noise injection (+ N(0, 1.5 sigma))
+#     designed to destroy classification boundaries and induce numerical instability.
+#   * Random Updates: Uninformative high-variance noise substitution (decorrelated updates).
+#   * Label Flipping: Inverting local binary theft labels (Theft <-> Normal) during training.
+# - Epistemic & Operational Guardrails:
+#   * "Similarity alone is insufficient": Colluding adversaries or subtle poisons can mimic
+#     legitimate update angles; conversely, legitimate industrial or agricultural non-IID
+#     substations naturally exhibit angular deviation from the median.
+#   * "Validation can be noisy": Central server benchmark sets may have limited sample sizes
+#     or regional distribution shifts; minor loss fluctuations must not cause immediate disqualification.
+#   * "Reputation must not unfairly punish non-IID clients": Smart grid clients with unusual
+#     consumption patterns must not be permanently stigmatized. The system incorporates
+#     reputation forgiveness and gradual recovery mechanisms.
+#   * "No guarantee of absolute resilience": Trust scoring mitigates empirical empirical influence;
+#     it does not provide mathematical impossibility proofs against arbitrary collusions.
+
+trust_system:
+  enabled: true
+  random_seed: 42
+
+  # ----------------------------------------------------------------------------
+  # 2. Composite Trust Score Component Weights (Must sum to 1.0)
+  # ----------------------------------------------------------------------------
+  # Formula:
+  #   T_composite(i) = w_sim * S_sim(i) + w_dist * S_dist(i) + w_val * S_val(i) + w_rep * R_prev(i)
+  weights:
+    similarity: 0.30     # w_sim: Directional alignment with robust reference update
+    update_distance: 0.20 # w_dist: Euclidean norm deviation from median update
+    validation: 0.25     # w_val: Server-side benchmark loss evaluation delta
+    reputation: 0.25     # w_rep: Historical multi-round reputation score
+
+  # ----------------------------------------------------------------------------
+  # 3. Metric 1: Cosine Directional Similarity (S_sim)
+  # ----------------------------------------------------------------------------
+  # Formula:
+  #   cos_sim(u_i, u_ref) = (u_i . u_ref) / (max(||u_i||_2 * ||u_ref||_2, eps))
+  #   S_sim(i) = max(0.0, (cos_sim + 1.0) / 2.0)  # Normalized to [0.0, 1.0]
+  # Reference vector: Coordinate-wise median of client update vectors (Delta w_i)
+  similarity:
+    reference_type: "median"  # Options: 'median', 'mean'
+    min_cosine_threshold: 0.0 # Raw cosine threshold below which similarity is penalized
+    epsilon: 1.0e-8
+
+  # ----------------------------------------------------------------------------
+  # 4. Metric 2: Update Distance & Norm Anomaly (S_dist)
+  # ----------------------------------------------------------------------------
+  # Formula:
+  #   dist_i = || Delta w_i - median(Delta w) ||_2
+  #   z_dist_i = (dist_i - median(dist)) / max(MAD(dist), eps)
+  #   S_dist(i) = exp(-max(0, z_dist_i) / distance_scale)
+  distance:
+    metric: "euclidean"
+    distance_scale: 2.0      # Controls softness of distance exponential penalty
+    max_z_score: 3.0         # Hard outlier cutoff for statistical norm anomalies
+
+  # ----------------------------------------------------------------------------
+  # 5. Metric 3: Server Benchmark Validation Evaluation (S_val)
+  # ----------------------------------------------------------------------------
+  # Formula:
+  #   loss_delta = L_global - L(w_global + Delta w_i)
+  #   S_val(i) = 1.0 / (1.0 + exp(-loss_delta / validation_temperature))
+  validation:
+    enabled: true
+    loss_tolerance: 0.05     # Acceptable loss increase before penalizing
+    temperature: 0.10        # Sigmoid temperature scaling for loss sensitivity
+    nan_loss_penalty: 0.0    # Score assigned if candidate update produces NaN/Inf loss
+    missing_benchmark_score: 0.70 # Default neutral score when benchmark data unavailable
+
+  # ----------------------------------------------------------------------------
+  # 6. Metric 4: Historical Multi-Round Reputation Engine (R_t)
+  # ----------------------------------------------------------------------------
+  # Formula:
+  #   R_t(i) = alpha * R_{t-1}(i) + (1.0 - alpha) * T_round(i)
+  reputation:
+    initial_reputation: 0.70  # Generous prior for new clients (avoids cold-start lockout)
+    decay_alpha: 0.80         # EMA weight on historical reputation (0.0 to 1.0)
+    unseen_client_retention: 0.95 # Slight decay for clients not participating in a round
+    min_reputation_floor: 0.10   # Prevents permanent irrecoverable zeroing of non-IID clients
+    forgiveness_boost: 0.05      # Gradual recovery increment on consecutive honest rounds
+    history_window: 10           # Max rounds kept in memory audit trail
+
+  # ----------------------------------------------------------------------------
+  # 7. Aggregation & Weight Reduction Policy
+  # ----------------------------------------------------------------------------
+  # Formula:
+  #   If T_composite(i) < suspicious_threshold:
+  #     policy: 'quarantine'  -> weight = 0.0
+  #     policy: 'soft_clip'   -> weight = T_composite(i)^penalty_exponent
+  #   Normalized Aggregation Weight:
+  #     omega_i = (n_i * f(T_i)) / sum_j (n_j * f(T_j))
+  aggregation:
+    suspicious_threshold: 0.40 # Trust score below which client update is flagged
+    policy: "quarantine"       # Options: 'quarantine' (weight=0), 'soft_clip', 'scaled'
+    penalty_exponent: 2.0      # Used if policy is 'soft_clip'
+    zero_weight_fallback: "coordinate_median" # Options: 'coordinate_median', 'prior_model'
+    min_effective_clients: 1   # Minimum clients required after filtering

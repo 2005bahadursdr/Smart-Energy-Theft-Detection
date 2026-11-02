@@ -1,0 +1,58 @@
+# ==============================================================================
+# System-wide Master Configuration
+# Blockchain-Based Byzantine-Resilient FL for Smart Grid Energy Theft Detection
+# ==============================================================================
+
+system:
+  project_name: "Blockchain-Based Byzantine-Resilient Federated Learning for Smart Grid Energy Theft Detection"
+  version: "1.0.0"
+  random_seed: 42
+  device: "cpu" # 'cpu' or 'cuda'
+
+paths:
+  raw_data_path: "data/raw/smart_meter_data(sgcc).csv"
+  processed_dir: "data/processed"
+  synthetic_data_path: "data/synthetic/simulated_meter_data.csv"
+  checkpoints_dir: "fl_system/checkpoints"
+  results_dir: "experiments/results"
+  contracts_dir: "blockchain/contracts"
+
+grid_topology:
+  num_clients: 5
+  client_ids:
+    - "client_A" # Industrial Zone Substation
+    - "client_B" # Commercial District Substation
+    - "client_C" # Urban Residential Feeder 1
+    - "client_D" # Urban Residential Feeder 2
+    - "client_E" # Rural / Semi-Urban Feeder
+  total_meters: 1000 # Sampled subset for high-fidelity simulation
+  sequence_length: 30 # Daily consumption sliding window (days)
+  theft_threshold: 0.5 # Probability threshold for binary theft classification
+
+mdms:
+  host: "127.0.0.1"
+  port: 8001
+  batch_size: 64
+  reading_interval_minutes: 15
+  auto_detect_anomalies: true
+
+mongodb:
+  uri: "mongodb://127.0.0.1:27017"
+  database: "smart_grid_theft_fl"
+  collections:
+    clients: "fl_clients"
+    rounds: "fl_rounds"
+    predictions: "theft_predictions"
+    trust_history: "trust_scores"
+    blockchain_audit: "audit_logs"
+
+blockchain:
+  provider_type: "eth_tester" # 'eth_tester' for deterministic testing, 'http' for local node
+  rpc_url: "http://127.0.0.1:8545"
+  chain_id: 1337
+  contract_name: "ReputationRegistry"
+  gas_limit: 3000000
+  gas_price_gwei: 20
+  record_raw_readings: false # STRICT PRIVACY RULE: Never store raw meter data on-chain
+  audit_round_metrics: true
+  audit_reputation_updates: true

@@ -1,0 +1,43 @@
+# ==============================================================================
+# Federated Learning Configuration
+# Blockchain-Based Byzantine-Resilient FL for Smart Grid Energy Theft Detection
+# ==============================================================================
+
+federated_learning:
+  strategy: "trust_based_fedavg" # Options: 'trust_based_fedavg', 'fedavg', 'krum', 'trimmed_mean', 'median'
+  num_rounds: 10
+  min_fit_clients: 5
+  min_available_clients: 5
+  min_evaluate_clients: 5
+  fraction_fit: 1.0
+  fraction_evaluate: 1.0
+
+training:
+  local_epochs: 3
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: "Adam"
+  loss_function: "BCEWithLogitsLoss"
+  use_class_weights: true # Handles ~8.5% theft imbalance in SGCC dataset
+  pos_weight: 5.0 # Weight multiplier for positive theft class
+
+client_distribution:
+  non_iid: true # Smart grid regions inherently exhibit non-IID energy consumption
+  split_strategy: "regional_cluster" # Partitions meters by distribution substations / zones
+  data_splits:
+    client_A: 0.20 # Industrial zone (high mean, high peak)
+    client_B: 0.20 # Commercial zone (daytime peak, night drop)
+    client_C: 0.20 # Dense urban residential (evening peaks)
+    client_D: 0.20 # Suburban residential (variable morning/evening)
+    client_E: 0.20 # Rural / mixed agricultural
+
+trust_mechanism:
+  similarity_metric: "cosine_similarity" # Update vector direction agreement
+  distance_metric: "euclidean_norm" # Gradient magnitude deviation
+  validation_split: 0.15 # Server-side clean benchmark validation set
+  history_window: 5 # Number of previous rounds considered for reputation
+  decay_factor: 0.85 # Exponential moving average alpha for reputation
+  trust_threshold: 0.40 # Clients with trust < threshold are quarantined/downweighted
+  reputation_weight: 0.40 # Beta weight for historical reputation
+  current_trust_weight: 0.60 # (1 - Beta) weight for instantaneous round trust

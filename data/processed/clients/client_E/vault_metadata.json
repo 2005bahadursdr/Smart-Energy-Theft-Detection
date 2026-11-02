@@ -1,0 +1,17 @@
+{
+  "client_id": "client_E",
+  "label": "Rural / Mixed Agricultural",
+  "meters_count": 2000,
+  "theft_meters": 120,
+  "normal_meters": 1880,
+  "theft_rate_pct": 6.0,
+  "mean_daily_kwh": 9.38,
+  "extracted_sequences": 288000,
+  "theft_sequences": 17280,
+  "window_size_days": 30,
+  "stride_days": 7,
+  "feature_dim": 1,
+  "privacy_firewall": "ACTIVE",
+  "central_fl_access": "BLOCKED",
+  "source_dataset": "SGCC data/raw/data.csv"
+}

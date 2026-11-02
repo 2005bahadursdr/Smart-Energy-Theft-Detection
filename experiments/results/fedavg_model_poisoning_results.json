@@ -1,0 +1,187 @@
+{
+  "status": "COMPLETED",
+  "total_rounds": 2,
+  "clients_count": 5,
+  "client_ids": [
+    "client_A",
+    "client_B",
+    "client_C",
+    "client_D",
+    "client_E"
+  ],
+  "duration_seconds": 30.47,
+  "total_communication_bytes": 3456400,
+  "total_communication_mb": 3.3,
+  "best_f1_score": 0.0,
+  "attack_configured": true,
+  "active_attack": "model_poisoning",
+  "attacker_clients": [
+    "client_D"
+  ],
+  "history": [
+    {
+      "round": 1,
+      "timestamp": "2026-10-18T09:09:19.297993+00:00",
+      "participating_clients": [
+        "client_A",
+        "client_E",
+        "client_C",
+        "client_B",
+        "client_D"
+      ],
+      "client_count": 5,
+      "total_samples": 9800,
+      "client_fit_metrics": {
+        "client_A": {
+          "num_samples": 1960,
+          "train_loss": 0.2364123876717302,
+          "grad_norm": 0.16774141028206052,
+          "duration_sec": 2.436,
+          "uplink_bytes": 172820
+        },
+        "client_E": {
+          "num_samples": 1960,
+          "train_loss": 0.23832076039886282,
+          "grad_norm": 0.16885797942129066,
+          "duration_sec": 2.609,
+          "uplink_bytes": 172820
+        },
+        "client_C": {
+          "num_samples": 1960,
+          "train_loss": 0.2338860245391486,
+          "grad_norm": 0.11298412005968946,
+          "duration_sec": 2.129,
+          "uplink_bytes": 172820
+        },
+        "client_B": {
+          "num_samples": 1960,
+          "train_loss": 0.24410798722096988,
+          "grad_norm": 0.15342327887764237,
+          "duration_sec": 2.215,
+          "uplink_bytes": 172820
+        },
+        "client_D": {
+          "num_samples": 1960,
+          "train_loss": 0.2379104738994952,
+          "grad_norm": 0.24782386658081582,
+          "duration_sec": 2.501,
+          "uplink_bytes": 172820
+        }
+      },
+      "aggregated_fit_metrics": {
+        "train_loss": 0.2381,
+        "grad_norm": 0.1702,
+        "total_samples": 9800,
+        "reporting_clients_count": 5
+      },
+      "server_benchmark_metrics": {},
+      "communication": {
+        "uplink_bytes": 864100,
+        "downlink_bytes": 864100,
+        "total_bytes": 1728200,
+        "total_kb": 1687.7
+      },
+      "checkpoint_saved": "experiments\\results\\fedavg_model_poisoning\\global_model_round_1.pt",
+      "is_best_model": false,
+      "best_f1_to_date": -1.0,
+      "privacy_notice": "FEDERATED LEARNING PRIVACY NOTICE: Standard Federated Learning (FedAvg) transmits model parameter gradients/updates rather than raw smart meter telemetry, ensuring local data isolation at distribution substations. However, Federated Learning alone DOES NOT guarantee mathematical differential privacy or cryptographic confidentiality. Parameter updates can potentially be vulnerable to gradient inversion or reconstruction attacks unless combined with formal Differential Privacy (DP) or Secure Multi-Party Computation (SMPC) / Secure Aggregation, which must be independently audited and implemented.",
+      "aggregated_evaluate_metrics": {
+        "accuracy": 0.925,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "total_samples": 2800,
+        "reporting_clients_count": 5
+      },
+      "client_evaluate_loss": NaN
+    },
+    {
+      "round": 2,
+      "timestamp": "2026-10-18T09:09:36.148800+00:00",
+      "participating_clients": [
+        "client_B",
+        "client_E",
+        "client_C",
+        "client_A",
+        "client_D"
+      ],
+      "client_count": 5,
+      "total_samples": 9800,
+      "client_fit_metrics": {
+        "client_B": {
+          "num_samples": 1960,
+          "train_loss": 0.009627885397358408,
+          "grad_norm": 0.024032904963776414,
+          "duration_sec": 2.956,
+          "uplink_bytes": 172820
+        },
+        "client_E": {
+          "num_samples": 1960,
+          "train_loss": 0.009396332397309673,
+          "grad_norm": 0.03019791815192645,
+          "duration_sec": 3.331,
+          "uplink_bytes": 172820
+        },
+        "client_C": {
+          "num_samples": 1960,
+          "train_loss": 0.009209910273409238,
+          "grad_norm": 0.007916126087412798,
+          "duration_sec": 3.283,
+          "uplink_bytes": 172820
+        },
+        "client_A": {
+          "num_samples": 1960,
+          "train_loss": 0.008434851754798493,
+          "grad_norm": 0.03589081123793806,
+          "duration_sec": 2.95,
+          "uplink_bytes": 172820
+        },
+        "client_D": {
+          "num_samples": 1960,
+          "train_loss": 0.009466339110194014,
+          "grad_norm": 0.004853988606750809,
+          "duration_sec": 2.724,
+          "uplink_bytes": 172820
+        }
+      },
+      "aggregated_fit_metrics": {
+        "train_loss": 0.0092,
+        "grad_norm": 0.0206,
+        "total_samples": 9800,
+        "reporting_clients_count": 5
+      },
+      "server_benchmark_metrics": {},
+      "communication": {
+        "uplink_bytes": 864100,
+        "downlink_bytes": 864100,
+        "total_bytes": 1728200,
+        "total_kb": 1687.7
+      },
+      "checkpoint_saved": "experiments\\results\\fedavg_model_poisoning\\global_model_round_2.pt",
+      "is_best_model": false,
+      "best_f1_to_date": 0.0,
+      "privacy_notice": "FEDERATED LEARNING PRIVACY NOTICE: Standard Federated Learning (FedAvg) transmits model parameter gradients/updates rather than raw smart meter telemetry, ensuring local data isolation at distribution substations. However, Federated Learning alone DOES NOT guarantee mathematical differential privacy or cryptographic confidentiality. Parameter updates can potentially be vulnerable to gradient inversion or reconstruction attacks unless combined with formal Differential Privacy (DP) or Secure Multi-Party Computation (SMPC) / Secure Aggregation, which must be independently audited and implemented.",
+      "aggregated_evaluate_metrics": {
+        "accuracy": 0.925,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "total_samples": 2800,
+        "reporting_clients_count": 5
+      },
+      "client_evaluate_loss": NaN
+    }
+  ],
+  "checkpoint_dir": "experiments\\results\\fedavg_model_poisoning",
+  "privacy_notice": "FEDERATED LEARNING PRIVACY NOTICE: Standard Federated Learning (FedAvg) transmits model parameter gradients/updates rather than raw smart meter telemetry, ensuring local data isolation at distribution substations. However, Federated Learning alone DOES NOT guarantee mathematical differential privacy or cryptographic confidentiality. Parameter updates can potentially be vulnerable to gradient inversion or reconstruction attacks unless combined with formal Differential Privacy (DP) or Secure Multi-Party Computation (SMPC) / Secure Aggregation, which must be independently audited and implemented.",
+  "ground_truth_log": "experiments\\results\\fedavg_model_poisoning\\byzantine_ground_truth.json",
+  "arm_description": "FedAvg under Model Poisoning attack (20% malicious: client_D injecting adversarial noise)",
+  "attack_type": "model_poisoning",
+  "attackers": [
+    "client_D"
+  ]
+}

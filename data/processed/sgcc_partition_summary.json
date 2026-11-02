@@ -1,0 +1,85 @@
+{
+  "dataset": "SGCC Benchmark Dataset",
+  "source_path": "data/raw/data.csv",
+  "total_consumers_in_raw": 42372,
+  "total_sampled_meters": 10000,
+  "total_extracted_sequences": 1440000,
+  "sequence_length_days": 30,
+  "stride_days": 7,
+  "raw_dataset_stats": {
+    "total_consumers": 42372,
+    "normal_consumers": 38757,
+    "theft_consumers": 3615,
+    "theft_rate_pct": 8.53,
+    "date_columns": 1034,
+    "date_range_start": "2014/1/1",
+    "date_range_end": "2016/9/9"
+  },
+  "clients": {
+    "client_A": {
+      "client_id": "client_A",
+      "label": "Heavy Industrial",
+      "meters_count": 2000,
+      "theft_meters": 240,
+      "theft_rate_pct": 12.0,
+      "mean_daily_kwh": 9.38,
+      "extracted_sequences": 288000,
+      "local_csv_path": "data/processed/clients/client_A/local_readings.csv",
+      "tensors_path": "data/processed/clients/client_A/sequences.npz",
+      "privacy_firewall": "ACTIVE",
+      "central_fl_access": "BLOCKED"
+    },
+    "client_B": {
+      "client_id": "client_B",
+      "label": "Commercial Business Center",
+      "meters_count": 2000,
+      "theft_meters": 180,
+      "theft_rate_pct": 9.0,
+      "mean_daily_kwh": 9.97,
+      "extracted_sequences": 288000,
+      "local_csv_path": "data/processed/clients/client_B/local_readings.csv",
+      "tensors_path": "data/processed/clients/client_B/sequences.npz",
+      "privacy_firewall": "ACTIVE",
+      "central_fl_access": "BLOCKED"
+    },
+    "client_C": {
+      "client_id": "client_C",
+      "label": "High-Density Urban Residential",
+      "meters_count": 2000,
+      "theft_meters": 160,
+      "theft_rate_pct": 8.0,
+      "mean_daily_kwh": 9.69,
+      "extracted_sequences": 288000,
+      "local_csv_path": "data/processed/clients/client_C/local_readings.csv",
+      "tensors_path": "data/processed/clients/client_C/sequences.npz",
+      "privacy_firewall": "ACTIVE",
+      "central_fl_access": "BLOCKED"
+    },
+    "client_D": {
+      "client_id": "client_D",
+      "label": "Suburban Residential",
+      "meters_count": 2000,
+      "theft_meters": 140,
+      "theft_rate_pct": 7.0,
+      "mean_daily_kwh": 8.36,
+      "extracted_sequences": 288000,
+      "local_csv_path": "data/processed/clients/client_D/local_readings.csv",
+      "tensors_path": "data/processed/clients/client_D/sequences.npz",
+      "privacy_firewall": "ACTIVE",
+      "central_fl_access": "BLOCKED"
+    },
+    "client_E": {
+      "client_id": "client_E",
+      "label": "Rural / Mixed Agricultural",
+      "meters_count": 2000,
+      "theft_meters": 120,
+      "theft_rate_pct": 6.0,
+      "mean_daily_kwh": 9.38,
+      "extracted_sequences": 288000,
+      "local_csv_path": "data/processed/clients/client_E/local_readings.csv",
+      "tensors_path": "data/processed/clients/client_E/sequences.npz",
+      "privacy_firewall": "ACTIVE",
+      "central_fl_access": "BLOCKED"
+    }
+  }
+}

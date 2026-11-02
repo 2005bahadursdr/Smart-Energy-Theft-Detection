@@ -1,0 +1,130 @@
+{
+  "benchmark_timestamp": "2026-10-18T09:23:22.938367+00:00",
+  "total_rounds": 2,
+  "local_epochs": 1,
+  "model_architecture": "CNN_LSTM",
+  "attack_evaluated": "sign_flipping",
+  "epistemic_disclaimer": "RESEARCH & OPERATIONAL NOTICE: An unusual, high-norm, or directionally divergent gradient update is NOT definitive proof of malicious Byzantine intent. In smart distribution grids, regional non-IID energy consumption (e.g. continuous industrial processes in client_A or seasonal agricultural irrigation in client_E) naturally produces legitimate statistical outliers. Trust scoring systems must balance outlier dampening with domain-specific variance tolerance.",
+  "privacy_notice": "FEDERATED LEARNING PRIVACY NOTICE: Standard Federated Learning (FedAvg) transmits model parameter gradients/updates rather than raw smart meter telemetry, ensuring local data isolation at distribution substations. However, Federated Learning alone DOES NOT guarantee mathematical differential privacy or cryptographic confidentiality. Parameter updates can potentially be vulnerable to gradient inversion or reconstruction attacks unless combined with formal Differential Privacy (DP) or Secure Multi-Party Computation (SMPC) / Secure Aggregation, which must be independently audited and implemented.",
+  "empirical_evaluation_notice": "EMPIRICAL NOTICE & LIMITATIONS: These benchmark metrics represent measured performance on a controlled 5-node smart grid non-IID simulation partition. In decentralized smart grid environments, heterogeneous load patterns (e.g. continuous industrial loads vs seasonal agricultural pumps) vary widely. While the proposed multi-criteria trust mechanism dynamically reduces malicious influence and mitigates sign-flipping and model-poisoning degradation without penalizing honest non-IID nodes, no heuristic or empirical trust mechanism guarantees mathematical Byzantine resilience against arbitrary or omniscient collusions without formal cryptographic or proof-based verification.",
+  "comparison": {
+    "fedavg_vulnerable": {
+      "strategy": "fedavg",
+      "attack_type": "sign_flipping",
+      "attackers": [
+        "client_D"
+      ],
+      "final_train_loss": 0.0287,
+      "final_test_loss": 0.056724607391016826,
+      "final_accuracy": 1.0,
+      "final_f1_score": 1.0,
+      "final_pr_auc": 1.0,
+      "final_roc_auc": 1.0,
+      "best_f1_score": 1.0,
+      "total_communication_mb": 3.3,
+      "malicious_influence": 0.2,
+      "detection_precision": null,
+      "detection_recall": null,
+      "detection_f1": null,
+      "detection_fpr": null,
+      "convergence": {
+        "loss_by_round": [
+          0.6228297332354954,
+          0.056724607391016826
+        ],
+        "f1_by_round": [
+          0.9864,
+          1.0
+        ]
+      }
+    },
+    "coordinate_median_robust": {
+      "strategy": "median",
+      "attack_type": "sign_flipping",
+      "attackers": [
+        "client_D"
+      ],
+      "final_train_loss": null,
+      "final_test_loss": 0.00040604213502125016,
+      "final_accuracy": 1.0,
+      "final_f1_score": 1.0,
+      "final_pr_auc": 1.0,
+      "final_roc_auc": 1.0,
+      "best_f1_score": 1.0,
+      "total_communication_mb": 3.3,
+      "malicious_influence": 0.2,
+      "detection_precision": null,
+      "detection_recall": null,
+      "detection_f1": null,
+      "detection_fpr": null,
+      "convergence": {
+        "loss_by_round": [
+          0.023882092939955846,
+          0.00040604213502125016
+        ],
+        "f1_by_round": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "trust_aware_defense": {
+      "strategy": "trust_aware",
+      "attack_type": "sign_flipping",
+      "attackers": [
+        "client_D"
+      ],
+      "final_train_loss": null,
+      "final_test_loss": 0.00033389008038544227,
+      "final_accuracy": 1.0,
+      "final_f1_score": 1.0,
+      "final_pr_auc": 1.0,
+      "final_roc_auc": 1.0,
+      "best_f1_score": 1.0,
+      "total_communication_mb": 3.3,
+      "malicious_influence": 0.0,
+      "detection_precision": 1.0,
+      "detection_recall": 1.0,
+      "detection_f1": 1.0,
+      "detection_fpr": 0.0,
+      "convergence": {
+        "loss_by_round": [
+          0.0223824876333986,
+          0.00033389008038544227
+        ],
+        "f1_by_round": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "trust_aware_clean": {
+      "strategy": "trust_aware",
+      "attack_type": "none",
+      "attackers": [],
+      "final_train_loss": null,
+      "final_test_loss": 0.0003462564551071929,
+      "final_accuracy": 1.0,
+      "final_f1_score": 1.0,
+      "final_pr_auc": 1.0,
+      "final_roc_auc": 1.0,
+      "best_f1_score": 1.0,
+      "total_communication_mb": 3.3,
+      "malicious_influence": 0.0,
+      "detection_precision": null,
+      "detection_recall": null,
+      "detection_f1": null,
+      "detection_fpr": null,
+      "convergence": {
+        "loss_by_round": [
+          0.02312460674771241,
+          0.0003462564551071929
+        ],
+        "f1_by_round": [
+          1.0,
+          1.0
+        ]
+      }
+    }
+  }
+}
